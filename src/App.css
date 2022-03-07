@@ -1,4 +1,17 @@
-.App {
+.app-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-areas: 
+  's s s s s'
+  'f b b b b'
+    ;
+}
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +48,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
