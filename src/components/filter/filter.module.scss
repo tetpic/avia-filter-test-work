@@ -1,8 +1,9 @@
 .filterSection {
     max-width: 460px;
-    height: calc(100vh - 150px);
+    // height: calc(100vh - 150px);
+    height: 100vh;
     grid-area: f;
-    background-color: green;
+    background-color: rgb(216, 224, 216);
   }
 
 #sortBy {
@@ -15,7 +16,7 @@
   flex-direction: column;
   margin: 20px 20px 20px 20px;
   border-radius: 10px;
-  background-color: rgb(127, 255, 212);
+  background-color: rgb(141, 177, 245);
   overflow: hidden;
   padding: 10px;
   input{
@@ -24,11 +25,17 @@
 
 }
 
+
+
 .filterBy {
-  @extend .sortBy
+  @extend .sortBy;
 }
 
 #filterBy {
- @extend #sortBy
+ @extend #sortBy;
+}
+
+.airlinesFilter {
+  @extend .sortBy
 }
 

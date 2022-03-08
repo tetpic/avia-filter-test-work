@@ -4,24 +4,26 @@ import Search from '../search/Search'
 import flights from '../../flights.json'
 
 
-let ticketsArr = []
-export const flightsBody = flights.result.flights
+
+export const flightsBody = []
+
+flights.result.flights.map(el => flightsBody.push(el.flight))
 // =============достаем все перелеты из общего стейта==============
-function pushTickets() {
-    flightsBody.forEach((el, index) => {
+// function pushTickets() {
+//     flightsBody.forEach((el, index) => {
         // console.log(el.flight.legs[1].segments)
         
-        ticketsArr.push({...el.flight.legs[0].segments[0], id: ++index}, 
-            {...el.flight.legs[0].segments[1], id: index}, 
-            {...el.flight.legs[1].segments[0], id: index}, 
-            {...el.flight.legs[1].segments[1], id: index})
+        // ticketsArr.push({...el.flight.legs[0].segments[0], id: ++index}, 
+        //     {...el.flight.legs[0].segments[1], id: index}, 
+        //     {...el.flight.legs[1].segments[0], id: index}, 
+        //     {...el.flight.legs[1].segments[1], id: index})
         // ticketsArr.push({...el.flight.legs[0].segments[0], }, 
         //     {...el.flight.legs[0].segments[1], }, 
         //     {...el.flight.legs[1].segments[0], }, 
         //     {...el.flight.legs[1].segments[1], })
-    })
-}
-pushTickets()
+//     })
+// }
+// pushTickets()
 
 
 

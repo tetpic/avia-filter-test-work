@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import Results from './Results'
 import {flightsBody} from '../search/SearchContainer'
+import {setFilteredDataActionCreator} from '../../redux/results-reducer'
 
 
 
@@ -21,21 +22,20 @@ import {flightsBody} from '../search/SearchContainer'
 
 
 let mapStateToProps = (state) => {
+    console.log(state)
     return {
-        departureTickets: state.searchReducer.departureTickets,
-        arriveTickets: state.searchReducer.arriveTickets,
-        tickets: state.searchReducer.tickets,
-        depInput: state.searchReducer.depInput,
-        sortBy: state.filterReducer.sortBy,
-        filterBy: state.filterReducer.filterBy,
-        flightsBody
-      
-
+        filteredData: state.resultReducer.filteredData,
+        flightsBody,
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
+        setFilteredData: (filteredData) => {
+            dispatch(setFilteredDataActionCreator(filteredData))
+        }
+
+        
     
 
     }
