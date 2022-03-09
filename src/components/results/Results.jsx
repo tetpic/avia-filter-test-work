@@ -10,7 +10,6 @@ let Results = (props) => {
         props.setFilteredData(props.flightsBody)
     }
 
-//   debugger
     return (
        
         <div className={cls.resultsSection}>
@@ -30,30 +29,24 @@ let Results = (props) => {
                 </div>
                 <div className={cls.itemBody}>
              
-                {el.legs[0].segments[1] ?  <CardModule2 el={el.legs[0]}/> : <CardModule1 el={el.legs[0]}/> }
-                <div className={cls.transfer}>{el.legs[0].segments[1] ? '1 пересадка' : undefined}</div>
-
-               
-                <p>Рейс выполняет: {el.legs[0].segments[0].airline.caption}</p>
-
-                <div className={cls.splitter}></div>
-               
-
-                {el.legs[1].segments[1] ?  <CardModule2 el={el.legs[1]}/> : <CardModule1 el={el.legs[1]}/> }
-                <div className={cls.transfer}>{el.legs[1].segments[1] ? '1 пересадка' : undefined}</div>
-                <p>Рейс выполняет: {el.legs[1].segments[0].airline.caption}</p>
-                    
-                <button className={cls.choiceButton}>ВЫБРАТЬ</button>
+                    {el.legs[0].segments[1] ?  <CardModule2 el={el.legs[0]}/> : <CardModule1 el={el.legs[0]}/> }
+                    <div className={cls.transfer}>{el.legs[0].segments[1] ? '1 пересадка' : undefined}</div>
+                
+                
+                    <p>Рейс выполняет: {el.legs[0].segments[0].airline.caption}</p>
+                
+                    <div className={cls.splitter}></div>
+                
+                
+                    {el.legs[1].segments[1] ?  <CardModule2 el={el.legs[1]}/> : <CardModule1 el={el.legs[1]}/> }
+                    <div className={cls.transfer}>{el.legs[1].segments[1] ? '1 пересадка' : undefined}</div>
+                    <p>Рейс выполняет: {el.legs[1].segments[0].airline.caption}</p>
+                        
+                    <button className={cls.choiceButton}>ВЫБРАТЬ</button>
                 </div>
             </div>
-
-
-
-)) }
-</div>
-        
-
-       
+            )) }
+        </div>
     )
 }
             

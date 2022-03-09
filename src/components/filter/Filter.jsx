@@ -2,7 +2,7 @@ import React from "react";
 import cls from './filter.module.scss'
 
 let Filter = (props) => {
-    props.filteredData.forEach(el => console.log(el.carrier.uid, el.carrier.caption))  
+    
 let filterAirlinesMachine = (choosenFlights) => {
    
     let allAirlines = choosenFlights.map(el => el.carrier.caption)
@@ -13,7 +13,7 @@ let filterAirlinesMachine = (choosenFlights) => {
 }
 
 
-    if (props.airLines.length == 0) {
+    if (props.airLines.length === 0) {
         filterAirlinesMachine(props.flightsBody)
     }
 
@@ -25,19 +25,19 @@ let filterAirlinesMachine = (choosenFlights) => {
         
         let value = sort.current.value
 
-        if (value == 'costUp') {
+        if (value === 'costUp') {
             let result = props.filteredData.sort((a, b) => {
                 return  (+a.price.total.amount - +b.price.total.amount)
             })
             props.setFilteredData(result)
         }
-        else if (value == 'costDown') {
+        else if (value === 'costDown') {
             let result = props.filteredData.sort((a, b) => {
                 return (+b.price.total.amount - +a.price.total.amount)
             })
             props.setFilteredData(result)
         }
-        else if (value == 'travelTime') {
+        else if (value === 'travelTime') {
             let result = props.filteredData.sort((a, b) => {
                 return(+a.legs[0].duration + +a.legs[1].duration) - ((+b.legs[0].duration + +b.legs[1].duration))
             })
@@ -54,7 +54,7 @@ let filterAirlinesMachine = (choosenFlights) => {
     let noChange = React.createRef()
     
     let filterMachine = () => {
-        if (props.filterBy == 'oneChange') {
+        if (props.filterBy === 'oneChange') {
             let result = props.flightsBody.filter(el => {
                 if( (el.legs[0].segments.length !== 1) && (el.legs[1].segments.length == 1) ) {
                     return el
@@ -66,9 +66,9 @@ let filterAirlinesMachine = (choosenFlights) => {
             props.setFilteredData(result)
             filterAirlinesMachine(result)
         }
-        else if (props.filterBy == 'noChange') {
+        else if (props.filterBy === 'noChange') {
             let result = props.flightsBody.filter(el => {
-                if ((el.legs[0].segments.length == 1) && (el.legs[1].segments.length == 1)) {
+                if ((el.legs[0].segments.length === 1) && (el.legs[1].segments.length === 1)) {
                     return el
                 }
             })
@@ -90,8 +90,8 @@ let filterAirlinesMachine = (choosenFlights) => {
 
         let result = []
         props.airLines.forEach(el => {
-            if (event.target.value == el.name) {
-                if(el.checked == true) {
+            if (event.target.value === el.name) {
+                if(el.checked === true) {
                     el.checked = false
                 }
                 else {
@@ -107,7 +107,7 @@ let filterAirlinesMachine = (choosenFlights) => {
         props.setAirlines(result)
 
         let filter = []
-        if (props.sortBy.length == 0) {
+        if (props.sortBy.length === 0) {
             props.flightsBody.filter(el => {
                 props.airLines.map(line => {
                     if (line.checked && (el.carrier.caption == line.name)){

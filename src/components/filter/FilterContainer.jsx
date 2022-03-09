@@ -1,24 +1,23 @@
 import { connect } from "react-redux";
 import Filter from "./Filter";
-import {setSortByActionCreator, setFilterByActionCreator, setAirlinesActionCreator, setAirlinesFilterActionCretor} from '../../redux/filter-reducer'
+import {setSortByActionCreator, setFilterByActionCreator, setAirlinesActionCreator, } from '../../redux/filter-reducer'
 import {setFilteredDataActionCreator} from '../../redux/results-reducer'
-import {flightsBody} from '../search/SearchContainer'
-
-// console.log(flightsBody)
+import flights from '../../flights.json'
 
 
+
+export const flightsBody = []
+
+flights.result.flights.map(el => flightsBody.push(el.flight))
 
 let mapStateToProps  = (state) => {
     return {
-
         sortBy: state.filterReducer.sortBy,
         filterBy: state.filterReducer.filterBy,
         flightsBody,
         filteredData: state.resultReducer.filteredData,
         airLines: state.filterReducer.airLines,
-        filteredAirlines: state.filterReducer.filteredAirlines
-        
-
+        filteredAirlines: state.filterReducer.filteredAirlines,
     }
 }
 
@@ -36,10 +35,6 @@ let mapDispatchToProps = (dispatch) => {
         setAirlines: (airlines) => {
             dispatch(setAirlinesActionCreator(airlines))
         },
-        // setAirlinesFilter: (filteredAirlines) => {
-        //     dispatch(setAirlinesFilterActionCretor(filteredAirlines))
-        // }
-        
     }
 }
 
